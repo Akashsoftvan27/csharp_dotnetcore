@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Bot.Connector.Authentication;
+using Microsoft.BotBuilderSamples.Dialogs.DownloadPermit;
+using Microsoft.BotBuilderSamples.Dialogs.Permits;
+using Microsoft.BotBuilderSamples.Dialogs.SearchPermit;
+using Microsoft.BotBuilderSamples.Dialogs.SelectPermit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -41,6 +45,10 @@ namespace Microsoft.BotBuilderSamples
 
             // Register the DialogAndWelcomeBot with ReviewSelectionDialog.
             services.AddTransient<IBot, DialogAndWelcomeBot<ReviewSelectionDialog>>();
+            services.AddTransient<SelectPermitDialog>();
+            services.AddTransient<PermitsDialog>();
+            services.AddTransient<DownloadPermitDialog>();
+            services.AddTransient<SearchPermitDialog>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
